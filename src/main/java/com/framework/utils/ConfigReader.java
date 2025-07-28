@@ -11,11 +11,11 @@ import java.util.Properties;
 
 public class ConfigReader {
 
-    private static final String configFilePath = "src/test/resources/config/config.properties";
+    private static final String configFilePath = "src/main/resources/config.properties";
     private static final Logger log = LoggerFactory.getLogger(DriverManager.class);
     public static final Properties properties = new Properties();
 
-    public ConfigReader() {
+    private ConfigReader() {
         // Private constructor to prevent instantiation
     }
     public static Properties readConfigFile() {
