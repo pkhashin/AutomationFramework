@@ -31,11 +31,11 @@ public class ElementActions  {
             } catch (StaleElementReferenceException e) {
                 log.warn("Attempt {} - StaleElementReferenceException for locator: {}. Retrying...", i, locator);
                 if (i == 2) {
-                    throw new ElementNotVisibleException("Element remained stale after retries: " + locator, e);
+                    throw new ElementNotInteractableException("Element remained stale after retries: " + locator, e);
                 }
             } catch (TimeoutException | NoSuchElementException e) {
                 log.error("Element not found: {}", locator, e);
-                throw new ElementNotVisibleException("Element could not be found: " + locator, e);
+                throw new ElementNotInteractableException("Element could not be found: " + locator, e);
             }catch (Exception e) {
                 log.error("Unexpected error for locator: {}", locator, e);
                 throw e;
